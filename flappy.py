@@ -1,5 +1,4 @@
 import pygame as pg
-from setting import *
 import random
 
 class game:
@@ -33,6 +32,7 @@ class game:
         self.b_pos=pg.Vector2(self.x,self.y)
         self.pipe_pos=pg.Vector2(self.pipe_x,self.pipe_y)
 
+
         
         
     def random_pipe(self):
@@ -58,9 +58,9 @@ class game:
             return 1
     def collision_checker(self):
         if self.b_pos.x<self.pipe_pos.x+150 and self.b_pos.x>self.pipe_pos.x:
-            if self.pipe_dir == -1 and int(self.b_pos.y)>=self.pipe_pos.y+2:
+            if self.pipe_dir == -1 and int(self.b_pos.y)+40>=self.pipe_pos.y:
                 return 1
-            if self.pipe_dir == 1 and int(self.b_pos.y)<=self.pipe_height-2:
+            if self.pipe_dir == 1 and int(self.b_pos.y)-40<=self.pipe_height:
                 return 1
         return 0
  
@@ -75,7 +75,7 @@ class game:
 	        self.flag=self.random_pipe()
 	    else:
 	        self.flag=self.update_pipe()
-	    pg.draw.circle(self.screen,'red',self.b_pos,50)
+	    pg.draw.circle(self.screen,'red',self.b_pos,40)
 	    self.apply_gravity()
 
     def update(self):
