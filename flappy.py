@@ -7,7 +7,7 @@ class game:
         pg.mouse.set_visible(False)
         res = (600,600)
         self.screen = pg.display.set_mode(res)
-        self.background=pg.image.load('/home/aadityakaushik/Downloads/bg.jpg')
+        self.background=pg.image.load('/home/aaditya/system/vs/py/pygame/flappy/1.png')
         self.background=pg.transform.scale(self.background,(600,600))
         self.clock = pg.time.Clock()
         self.dt = self.clock.tick(60)/1000
@@ -70,7 +70,7 @@ class game:
     def draw(self):
 	    sctxt=self.font.render("Score:"+str(self.score),True,"red")
 	    self.screen.blit(self.background,(0,0))
-	    self.screen.blit(sctxt,[20,20])
+        #self.screen.blit(sctxt,[20,20])
 	    if self.flag==0:
 	        self.flag=self.random_pipe()
 	    else:
