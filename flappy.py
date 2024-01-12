@@ -68,15 +68,15 @@ class game:
     	self.b_pos.y+=0.8
 
     def draw(self):
-	    sctxt=self.font.render("Score:"+str(self.score),True,"red")
-	    self.screen.blit(self.background,(0,0))
-        #self.screen.blit(sctxt,[20,20])
-	    if self.flag==0:
-	        self.flag=self.random_pipe()
-	    else:
-	        self.flag=self.update_pipe()
-	    pg.draw.circle(self.screen,'red',self.b_pos,40)
-	    self.apply_gravity()
+        sctxt=self.font.render("Score:"+str(self.score),True,"red")
+        self.screen.blit(self.background,(0,0))
+        self.screen.blit(sctxt,[20,20])
+        if self.flag==0:
+            self.flag=self.random_pipe()
+        else:
+            self.flag=self.update_pipe()
+        pg.draw.circle(self.screen,'red',self.b_pos,40)
+        self.apply_gravity()
 
     def update(self):
         keys=pg.key.get_pressed()
